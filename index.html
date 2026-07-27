@@ -29,7 +29,7 @@
         h1 {
             color: #38bdf8;
             font-size: 22px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -39,6 +39,19 @@
             color: #cbd5e1;
             margin-bottom: 24px;
             font-style: italic;
+        }
+        .audio-btn {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
         .btn {
             display: inline-block;
@@ -59,12 +72,32 @@
 <body>
     <div class="card">
         <h1>✨ El Grimorio Sagrado ✨</h1>
+        
+        <!-- Reproductor de Audio -->
+        <audio id="musica" loop src="musica.mp3"></audio>
+        <button class="audio-btn" onclick="toggleAudio()" id="btnAudio">🎵 Activar Música Mágica</button>
+
         <p>
             "Cuenta la leyenda que cuatro almas intentaron, una y otra vez, traer orden y armonía a su hogar; pero el caos siempre prevalecía y los acuerdos se desvanecían en el viento.<br><br>
             Al presenciar su eterna lucha, un antiguo hechicero forjó un <strong>grimorio sagrado e inquebrantable</strong>. En sus páginas quedó grabado con tinta indeleble el destino y la misión diaria de cada integrante.<br><br>
             Pero atención: aquel que ose desafiar lo escrito y faltar a su deber, sufrirá la furia de un antiguo conjuro... ¡y perderá aquello que su corazón más valora!"
         </p>
-        <a href="https://1drv.ms/x/c/891146d2cd967ead/IQCI6GlDwPVHRK8AqMqdcQXEAXdry7AUHNioQ7mYEmdBXpg?e=tPmOhU" target="_blank" class="btn">📜 Consultar el Grimorio (Excel)</a>
+        
+        <a href="https://1drv.ms/x/c/891146d2cd967ead/IQCI6GlDwPVHRK8AqMqdcQXEAXdry7AUHNioQ7mYEmdBXpg?e=Gs0Hb5" target="_blank" class="btn">📜 Consultar el Grimorio (Excel)</a>
     </div>
+
+    <script>
+        function toggleAudio() {
+            var audio = document.getElementById("musica");
+            var btn = document.getElementById("btnAudio");
+            if (audio.paused) {
+                audio.play();
+                btn.innerHTML = "🔊 Música Sonando...";
+            } else {
+                audio.pause();
+                btn.innerHTML = "🎵 Activar Música Mágica";
+            }
+        }
+    </script>
 </body>
 </html>
